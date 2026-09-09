@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roadwave Advanced — PC audio, internet radio and playlists for BeamNG.drive</title>
+<meta name="description" content="Play anything your PC is playing through the car in BeamNG.drive, in 3D. Plus internet radio and a playlist builder. $6 one-time, no subscription. Works with the free Roadwave mod.">
+<meta property="og:title" content="Roadwave Advanced">
+<meta property="og:description" content="Play anything your PC is playing — through the car, in 3D. Internet radio and a playlist builder too. $6 one-time.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0a0f0d; --bg2:#111815; --line:#1f2b26;
+  --fg:#e9efeb; --dim:#93a49b; --accent:#2fd07a; --accent-dim:#1f8f55;
+  --max:940px;
+  --display:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.68 var(--body);
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0 0 .5em;text-wrap:balance}
+h1{font-size:clamp(30px,5.2vw,50px);letter-spacing:-.02em}
+h2{font-size:clamp(22px,3.2vw,30px);letter-spacing:-.01em;margin-top:0}
+h3{font-size:19px;margin-bottom:.35em}
+p{margin:0 0 1em;max-width:68ch}
+img{max-width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+
+/* hero */
+.hero{padding:70px 0 46px;background:
+   radial-gradient(1000px 420px at 50% -140px,rgba(47,208,122,.13),transparent 70%),
+   linear-gradient(#0e1217,var(--bg))}
+.eyebrow{font-family:var(--display);color:var(--accent);font-weight:600;font-size:13px;letter-spacing:.13em;
+  text-transform:uppercase;margin:0 0 14px}
+.lead{font-size:clamp(17px,2.3vw,21px);color:var(--fg);max-width:640px;margin-bottom:26px}
+.lead b{color:#fff}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:16px}
+.btn{font-family:var(--display);display:inline-block;background:var(--accent);color:#06170e;font-weight:700;
+  text-decoration:none;padding:14px 26px;border-radius:8px;font-size:17px;
+  transition:transform .12s ease,background .12s ease}
+.btn:hover{background:#43e08d;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line);font-weight:600}
+.btn.ghost:hover{background:var(--bg2);border-color:#38424f}
+.price{color:var(--dim);font-size:15px}
+.price b{color:var(--fg)}
+.requires{margin-top:22px;padding:14px 16px;border-left:3px solid var(--accent-dim);
+  background:var(--bg2);border-radius:0 8px 8px 0;color:var(--dim);font-size:15px;max-width:640px}
+.requires b{color:var(--fg)}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--line)}
+section.plain{border-top:none}
+.sub{color:var(--dim);max-width:660px;margin-bottom:34px}
+
+.feature{margin-bottom:56px}
+.feature:last-child{margin-bottom:0}
+.feature .tag{font-family:var(--display);display:inline-block;font-size:12px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);
+  border-radius:99px;padding:3px 11px;margin-bottom:12px}
+.feature p{color:var(--dim);max-width:660px}
+.feature p b{color:var(--fg)}
+.feature figure{margin:22px 0 0}
+.feature figcaption{color:#75808e;font-size:13.5px;margin-top:9px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{color:#fff;font-size:17px}
+.card p{color:var(--dim);font-size:15px;margin:0}
+
+.note{background:var(--bg2);border:1px solid var(--line);border-left:3px solid #d8a13a;
+  border-radius:0 10px 10px 0;padding:20px 22px}
+.note h3{color:#e8b95c}
+.note p{color:var(--dim);margin-bottom:0}
+.note p b{color:var(--fg)}
+
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{color:var(--dim);padding:11px 0 11px 26px;position:relative;border-bottom:1px solid var(--line)}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li::before{content:"";position:absolute;left:4px;top:19px;width:7px;height:7px;
+  border-radius:50%;background:var(--accent-dim)}
+ul.clean li b{color:var(--fg)}
+
+details{border-bottom:1px solid var(--line);padding:15px 0}
+details summary{cursor:pointer;font-weight:600;color:var(--fg);list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+ ";color:var(--accent);font-weight:700}
+details[open] summary::before{content:"– "}
+details p{color:var(--dim);margin:12px 0 2px;max-width:680px}
+
+.buy-final{text-align:center;background:
+  radial-gradient(700px 300px at 50% 0,rgba(47,208,122,.10),transparent 70%)}
+.buy-final .price{margin-bottom:22px}
+.buy-final .cta-row{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:34px 0 60px;color:#6b7685;font-size:14px}
+footer a{color:#8b96a5}
+footer p{margin:0 0 .6em}
+@media(max-width:640px){ .hero{padding:48px 0 36px} section{padding:44px 0} }
+
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* the signal path — the one diagram this subject actually has */
+.path{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:24px 0 0;
+  font-family:var(--display);font-size:13.5px;font-weight:500}
+.path span{border:1px solid var(--line);background:var(--bg2);border-radius:6px;padding:7px 13px;color:var(--fg)}
+.path span.mid{border-color:var(--accent-dim);color:var(--accent)}
+.path i{color:#4d5f57;font-style:normal}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Roadwave Advanced · for BeamNG.drive</p>
+    <h1>Play anything your PC is playing —<br>through the car, in 3D.</h1>
+    <p class="lead">Press play in a browser, a music player, a livestream. Press <b>This PC</b> in the game.
+      The sound comes out of the vehicle in <b>BeamNG.drive</b> instead of your speakers, fading and
+      muffling with distance exactly like the music files you already play. <b>Internet radio and a playlist builder come with it.</b></p>
+    <div class="cta-row">
+      <a class="btn" href="buy.html">Get Roadwave Advanced — from $6</a>
+      <a class="btn ghost" href="#what">See what it does</a>
+    </div>
+    <p class="price"><b>From $6, once.</b> Pay more than that if you want to; nothing changes if you do
+      not. No licence key, no activation, no phone-home. Windows only.</p>
+    <div class="requires">
+      <b>Requires the free Roadwave mod</b>, which is free, complete, and stays that way —
+      Advanced changes nothing about it.
+      <a href="https://www.beamng.com/resources/roadwave-%E2%80%94-in-car-music-player-with-3d-audio.39115/">Get the free mod first</a>.
+    </div>
+  </div>
+</header>
+
+<!-- VIDEO GOES HERE once the desktop-audio clip exists. Section markup ready:
+<section class="plain"><div class="wrap">
+  <div style="position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;border:1px solid var(--line)">
+    <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0"
+      src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Roadwave Advanced"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div></section>
+-->
+
+<section id="what">
+  <div class="wrap">
+    <h2>Three things it adds</h2>
+    <p class="sub">One installer, two small Windows programs, and they work with the mod you already have.</p>
+
+    <div class="feature">
+      <span class="tag">Desktop audio</span>
+      <h3>Your PC's own sound, in the car</h3>
+      <p>Press <b>This PC</b> in the game's Radio tab and pick the program you are listening to.
+        Its sound moves into the car: 3D, muffled from outside, fading as you walk away — exactly like a
+        station or a track. It is live: the audio passes through to the game as it plays, and nothing is
+        written to disk. The row is named after <b>what is actually playing</b> rather than after the
+        program, so you can read the track from inside the car.</p>
+      <div class="path" aria-label="Signal path: your program, through Roadwave Link, out of the car">
+        <span>Chrome · Spotify · VLC · anything</span><i>→</i><span class="mid">Roadwave Link</span><i>→</i><span>out of the car, in 3D</span>
+      </div>
+      <figure>
+        <img src="img/this-pc-button.webp" alt="The This PC button in the Radio tab, with its tooltip: play any program on this PC through the car" loading="lazy" width="1400" height="618">
+        <figcaption>The button, and what it says it does.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/desktop-audio-list.webp" alt="The desktop audio source list showing Chrome, Spotify and VLC, with the line explaining what Roadwave changed" loading="lazy" width="1400" height="616">
+        <figcaption>Pick a source. The line underneath says what Roadwave did to your sound — and that it puts it back.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <span class="tag">Internet radio</span>
+      <h3>Real stations, in the cabin</h3>
+      <p>Search by name or tag, filter by country, star the ones you keep coming back to. Station logos
+        appear on the in-car screen. If you have Euro Truck Simulator 2 or American Truck Simulator
+        installed, it can read the stations out of your own copy and add them.</p>
+      <figure>
+        <img src="img/radio-stations.webp" alt="The Radio tab showing a list of internet radio stations with country and bitrate" loading="lazy" width="1400" height="618">
+        <figcaption>The station list, with the truck sim import offered when you have the game.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <span class="tag">Playlist builder</span>
+      <h3>Roadwave Jukebox</h3>
+      <p>Paste a Spotify or YouTube link, or just type artist and song names, and it builds a playlist
+        folder the mod reads. <b>Your own music folders are searched first</b> — anything you already own
+        is copied, never downloaded. Everything else is matched by running time, because a cover version
+        or a live cut shares a title but not a length.</p>
+      <figure>
+        <img src="img/jukebox.webp" alt="The Roadwave Jukebox window with a resolved track list and one row open for choosing between candidates" loading="lazy" width="1356" height="926">
+        <figcaption>A row it is not sure about opens its candidates, so you decide instead of it guessing.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>One thing to know before you buy</h2>
+    <div class="note">
+      <h3>Desktop audio needs a second audio output — the rest does not</h3>
+      <p>To give the car the sound to itself, <b>This PC</b> moves the program you are listening to onto
+        another output on your machine and silences that one while it plays, then puts both back when you
+        stop. That needs somewhere to move it to. <b>If your PC has only one output</b> — a laptop with
+        nothing but its built-in speakers, a desktop with a single soundbar and no headset — the music
+        comes out of your speakers as well as the car. The game says so on screen when that is your case.
+        This is how Windows works, not something the mod can fix.</p>
+      <p style="margin-top:14px"><b>It affects that one feature and nothing else.</b> Internet radio, the
+        Jukebox playlist builder and the whole free mod work exactly the same on a PC with a single output.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What you already have, free</h2>
+    <p class="sub">Advanced sits on top of this. None of it is behind a payment, and none of it ever will be.</p>
+    <figure style="margin:0 0 26px">
+      <img src="img/in-car.webp" alt="The Roadwave screen inside the car cabin while driving, with the browser app open beside it" loading="lazy" width="1400" height="630">
+      <figcaption style="color:#75808e;font-size:13.5px;margin-top:9px">The player is a screen in the cabin, not an overlay. It sits where you put it, in every car.</figcaption>
+    </figure>
+    <figure style="margin:0 0 30px">
+      <img src="img/spatial-audio.webp" alt="Chart showing the music falling to 33% at 6 metres, 10% at 20 metres and 3% at 60 metres as you walk away from the car" loading="lazy" width="1200" height="620">
+    </figure>
+    <div class="cards">
+      <div class="card"><h3>A screen in the cabin</h3><p>Drag it where you want it, scroll to resize. Every car remembers its own placement, modded cars included.</p></div>
+      <div class="card"><h3>3D positional audio</h3><p>The music comes from the car and fades and dulls as you walk away from it. One button turns it flat if you would rather.</p></div>
+      <div class="card"><h3>Your own files</h3><p>mp3, ogg, wav, flac. One folder is one playlist. Nothing is bundled and nothing phones anywhere.</p></div>
+      <div class="card"><h3>Eight bindable controls</h3><p>Keyboard and gamepad, so you can change track without letting go of the wheel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What it is not</h2>
+    <ul class="clean">
+      <li><b>No music included.</b> You bring your own files, or your own streaming accounts.</li>
+      <li><b>No DRM.</b> No licence key, no activation, no phone-home check. What arrives is an installer.</li>
+      <li><b>It does not download music for you.</b> Roadwave Jukebox reads a track list and finds the songs; what you do with them is yours, and you are responsible for having the right to it.</li>
+      <li><b>Nothing is recorded.</b> Radio and your PC's own sound both pass straight through to the game as they play. No stream is stored, nothing is rebroadcast, and no station's ads are skipped or added.</li>
+      <li><b>Spotify gives names only.</b> Reading a Spotify playlist gets names, artists and lengths — never audio, never cover art, from Spotify itself.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Questions</h2>
+    <details><summary>Do I need this to use Roadwave?</summary>
+      <p>No. The free mod is a complete music player on its own and always will be. Advanced adds internet radio, desktop audio and the playlist builder on top of it.</p></details>
+    <details><summary>Which programs can it play through the car?</summary>
+      <p>Any program on the PC — a browser, a music player, a livestream. It has been tested in game with Chrome, the Spotify desktop app and VLC; other players appear in the list, and those three are the ones verified by hand. A few players hold the sound card to themselves — certain foobar2000 and DAC setups do this — and those cannot be played through the car at all. Roadwave notices within a few seconds and tells you rather than sitting there looking broken.</p></details>
+    <details><summary>What actually downloads when I buy?</summary>
+      <p>A zip holding one installer plus a readme and instructions. The installer's filename says Jukebox rather than Advanced — Jukebox and Link are the two programs inside it. It installs per-user and needs no admin rights.</p></details>
+    <details><summary>Does it work on Mac or Linux?</summary>
+      <p>No. Windows only, version 10.0.17763 (Windows 10 1809) or newer. The free mod itself runs wherever BeamNG does.</p></details>
+    <details><summary>What happens when BeamNG updates?</summary>
+      <p>The two Windows programs are unaffected by a game patch. The free mod is the part that occasionally needs a new version, and that arrives through the repository like any other mod update.</p></details>
+    <details><summary>What if something goes wrong?</summary>
+      <p>Message through Ko-fi or Patreon — that is the support channel. Both programs write a log to <code>%LOCALAPPDATA%\Roadwave\</code>, and sending it along with what you did and what happened instead usually makes it fixable in one reply. Feature ideas are just as welcome as bug reports.</p></details>
+    <details><summary>Should I subscribe on Patreon instead?</summary>
+      <p>Only if you want to support the work month to month. The monthly tier is a supporter tier — it does not include Roadwave Advanced. Advanced is a one-time purchase, and buying it on Patreon or on Ko-fi gets you exactly the same file.</p></details>
+    <details><summary>Can I get a refund?</summary>
+      <p>If Advanced does not do what this page says and it cannot be fixed together, message within 14 days of buying for a refund through Ko-fi's or Patreon's own request flow. After that there is still help, just without the refund guarantee.</p></details>
+  </div>
+</section>
+
+<section class="buy-final">
+  <div class="wrap">
+    <h2>Roadwave Advanced</h2>
+    <p class="price"><b>From $6</b> · a one-time purchase · no licence key · no DRM</p>
+    <div class="cta-row">
+      <a class="btn" href="buy.html">Buy on Ko-fi — from $6</a>
+      <a class="btn ghost" href="buy.html?store=patreon">Buy on Patreon</a>
+    </div>
+    <p class="price" style="margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto">
+      There is also a monthly supporter tier on Patreon, for anyone who wants to back the work as it
+      continues. <b>It is not how you get Advanced</b> — that is the one-time purchase above, on either store.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Made by Villahousu. <a href="https://www.beamng.com/resources/roadwave-%E2%80%94-in-car-music-player-with-3d-audio.39115/">The free mod</a> ·
+       <a href="https://www.beamng.com/threads/roadwave-%E2%80%94-in-car-music-player-with-3d-audio.111461/">Discussion thread</a></p>
+    <p>There is no DRM or licence lock on any of this. If someone wants it, please send them here rather than the file — that is what keeps it sustainable enough to keep building.</p>
+    <p>Not affiliated with or endorsed by BeamNG GmbH.</p>
+  </div>
+</footer>
+
+<!-- Cloudflare Web Analytics — paste the real token in place of TOKEN, then this line starts counting.
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TOKEN"}'></script>
+-->
+</body>
+</html>

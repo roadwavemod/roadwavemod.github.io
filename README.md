@@ -26,15 +26,17 @@ Every channel links here, never straight to a store. The funnel is then:
 `buy.html` is a redirect, so **buy-button clicks show up as page views of
 `/buy.html`** in any plain page-view counter. No event tracking needed.
 
-Counting is Cloudflare Web Analytics (free, cookieless); its beacon is live at
-the bottom of `index.html` and `buy.html`.
+To turn counting on: create a free Cloudflare Web Analytics site (no card, no
+cookies, the domain does not need to be on Cloudflare), then uncomment the
+beacon at the bottom of `index.html` and `buy.html` and paste the token in.
 
-Links are plain `https://roadwavemod.github.io/` — no tracking parameters.
-Cloudflare Web Analytics does not record query strings (its Path dimension shows
-only `/` and `/buy.html`), so `?from=` tags measure nothing; they were used and
-dropped 14.9.2026. Arrivals are split by the Referrer dimension instead. A
-per-channel split would need separate paths (`/tiktok`), which Cloudflare does
-record, or an analytics tool that keeps query strings.
+Link per channel so arrivals can be attributed — the query string shows up in
+the analytics as a distinct page:
+
+    https://roadwavemod.github.io/?from=modland
+    https://roadwavemod.github.io/?from=forum
+    https://roadwavemod.github.io/?from=youtube
+    https://roadwavemod.github.io/?from=reddit
 
 Reading it later:
 
@@ -49,3 +51,4 @@ Reading it later:
 
 - Add the desktop-audio demo video. The markup is ready and commented out near
   the top of `index.html` — paste the YouTube id in and delete the comment.
+- Add the Cloudflare beacon token.

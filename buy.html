@@ -16,7 +16,17 @@ a{color:#2fd07a}
  padding:12px 24px;border-radius:8px}
 </style>
 <script>
-// One redirect page per store, so a plain page-view counter measures buy-button clicks.
+// One redirect page per store, so a plain page-view counter measures buy-button
+// clicks. Patreon moved to buy-patreon.html on 17.9.2026: it was ?store=patreon
+// on this page, and Cloudflare Web Analytics records the path and never the
+// query string, so both stores counted as one /buy.html view. Eight sales in,
+// there was still no way to see which store anybody had chosen.
+//
+// This page keeps its name. It is the one with history in the counter, and any
+// link written down before today points here. The old parameter is still
+// honoured so those links reach the right store, but nothing on the site
+// writes it any more - a visit carrying it is counted as /buy.html, which is
+// exactly the measurement that did not work.
 (function(){
   var KOFI="https://ko-fi.com/s/d53c388128";
   var PATREON="https://www.patreon.com/c/villahousu/shop";

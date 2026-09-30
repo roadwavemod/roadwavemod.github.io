@@ -26,17 +26,19 @@ Every channel links here, never straight to a store. The funnel is then:
 `buy.html` is a redirect, so **buy-button clicks show up as page views of
 `/buy.html`** in any plain page-view counter. No event tracking needed.
 
-To turn counting on: create a free Cloudflare Web Analytics site (no card, no
-cookies, the domain does not need to be on Cloudflare), then uncomment the
-beacon at the bottom of `index.html` and `buy.html` and paste the token in.
+Counting is Cloudflare Web Analytics; the beacon is live in every page.
 
-Link per channel so arrivals can be attributed — the query string shows up in
-the analytics as a distinct page:
+Cloudflare records the path and never the query string, so `?from=` tags
+measure nothing. Channels whose in-app browsers send no referrer get their own
+path instead, each a Jekyll copy of `index.html` (`tiktok.html`, `ig.html`,
+`yt.html` - edit `index.html` only):
 
-    https://roadwavemod.github.io/?from=modland
-    https://roadwavemod.github.io/?from=forum
-    https://roadwavemod.github.io/?from=youtube
-    https://roadwavemod.github.io/?from=reddit
+    https://roadwavemod.github.io/tiktok
+    https://roadwavemod.github.io/ig
+    https://roadwavemod.github.io/yt
+
+Everything else (forum, ModLand) links to the plain `https://roadwavemod.github.io/`;
+those send a referrer.
 
 Reading it later:
 

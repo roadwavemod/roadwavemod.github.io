@@ -432,6 +432,21 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
   </div>
 </footer>
 
+<script>
+// Short-form viewers get 10 % off through a Ko-fi discount link. Code entry at
+// checkout stays OFF on the Ko-fi account: the reviewer codes are 100 % and
+// named after the channel, so an open code field would let anyone guess them.
+// The link carries the code instead, so this path's buy buttons go straight to it.
+(function(){
+  var code={"/tiktok":"RW-TIKTOK","/yt":"RW-SHORTS"}[location.pathname.replace(/\.html$|\/$/,"")];
+  if(!code) return;
+  document.querySelectorAll('a[href="buy.html"]').forEach(function(a){
+    a.href="https://ko-fi.com/villahousu/link/"+code;
+    a.textContent=a.textContent.replace(/from \$6/,"10 % off with this link");
+  });
+})();
+</script>
+
 <!-- Cloudflare Web Analytics -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5e77c90837694a70bf4bd2a74857b9de"}'></script>
 <!-- End Cloudflare Web Analytics -->

@@ -288,7 +288,7 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
         written to disk. The row is named after <b>what is actually playing</b> rather than after the
         program, and the in-car player shows the song's title and artist, so you can read the track from
         inside the car. <b>The car's own next, previous and play buttons</b> move the program on your PC as
-        well, with nothing new to bind.</p>
+        well, with nothing new to bind. <a href="#this-pc">How to set it up</a>.</p>
       <div class="path" aria-label="Signal path: your program, through Roadwave Link, out of the car">
         <span>Chrome · Spotify · VLC · anything</span><i>→</i><span class="mid">Roadwave Link</span><i>→</i><span>out of the car, in 3D</span>
       </div>
@@ -465,6 +465,36 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
   </div>
 </section>
 
+<section id="this-pc">
+  <div class="wrap">
+    <h2>Set up This PC (Roadwave Advanced)</h2>
+    <p class="sub">Play Spotify, a browser tab or any music player on your PC through the car. The order does not matter: pick the program first or press play first, and the car picks it up as soon as it plays.</p>
+    <div class="cards">
+      <div class="card"><h3>1. Install Roadwave Advanced</h3><p>Run the installer. Roadwave Link starts right after it and, unless you untick it, every time Windows starts, so it is already running when you open the game. Keep the free mod up to date too.</p></div>
+      <div class="card"><h3>2. Open the Radio tab</h3><p>Start BeamNG.drive and open the Roadwave Browser: with Link running it has a Radio tab. No Radio tab? Start Roadwave Link from the Windows Start menu and press Reconnect.</p></div>
+      <div class="card"><h3>3. Press This PC</h3><p>It lists the music programs that are open: Spotify, Chrome, Edge, Firefox, Brave, Opera, VLC, foobar2000, AIMP, MusicBee, iTunes and Deezer. Opened one just now? Press Rescan.</p></div>
+      <div class="card"><h3>4. Pick it and press play</h3><p>Pick the program, then press play in it. Until it plays the browser says Waiting for sound, and the car takes over the moment the music starts.</p></div>
+      <div class="card"><h3>5. Drive</h3><p>The car's next, previous and play buttons move the program too. From now on This PC is on the playlist wheel, Shift + T, and it plays the program you picked last.</p></div>
+    </div>
+    <div class="note" style="margin-top:26px">
+      <h3>If something is off, the Radio tab says what. In short:</h3>
+      <p><b>The music comes from your speakers as well as the car.</b> The program plays to the same output
+        as the game. Press <b>Windows mixer</b> in the Radio tab and send the program to any other output,
+        a headset or a second screen's speakers, and Roadwave silences that one while it plays and puts it
+        back when you stop. With only one output this cannot be avoided; see the note above.</p>
+      <p style="margin-top:12px"><b>It is quiet.</b> The program's own volume in Windows comes first, and the
+        car cannot make up for it. Turn it up with <b>Windows mixer</b>.</p>
+      <p style="margin-top:12px"><b>Still no sound from this program.</b> It is keeping its output to
+        itself. In Windows: Sound settings, More sound settings, your speakers, Properties, Advanced, untick
+        "Allow applications to take exclusive control", then restart the program.</p>
+      <p style="margin-top:12px"><b>Next and previous do nothing.</b> Some programs give Windows no media
+        controls. Change the track in the program itself.</p>
+      <p style="margin-top:12px">Anything else, tell me in <a href="#feedback">the feedback box</a>: which
+        program, and what the Radio tab says.</p>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <h2>What people ask for tends to ship</h2>
@@ -537,8 +567,10 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
       <p>No. The free mod is a complete music player for BeamNG.drive on its own and always will be. Advanced adds desktop audio, internet radio, Car tone, the player looks and the playlist builder on top of it.</p></details>
     <details><summary>Windows Defender flagged the installer. Is it safe?</summary>
       <p>A new version can be flagged in its first days. The installer is not code-signed, and Defender's automatic detection is wary of any new unsigned program until Microsoft has reviewed it. Every version is sent to Microsoft on release day, and so far their analysts have found nothing in any of them. If yours is flagged, email <a href="mailto:garagegraphicsdesigns@gmail.com">garagegraphicsdesigns@gmail.com</a> and I will send the file's SHA256 so you can check your download.</p></details>
+    <details><summary>How do I set up This PC?</summary>
+      <p>With Roadwave Link running, open the Radio tab in the Roadwave Browser, press This PC, pick your program and press play in it. The car picks it up as soon as it plays. The five steps, and what to do when the music also comes from your speakers or stays silent, are in <a href="#this-pc">Set up This PC</a>.</p></details>
     <details><summary>Which programs can it play through the car?</summary>
-      <p>Any program on the PC: a browser, a music player, a livestream. It has been tested in game with Chrome, the Spotify desktop app and VLC; other players appear in the list, and those three are the ones verified by hand. A few players hold the sound card to themselves (certain foobar2000 and DAC setups do this), and those cannot be played through the car at all. Roadwave notices within a few seconds and tells you rather than sitting there looking broken.</p></details>
+      <p>These twelve, and whatever plays in them, a livestream in a browser tab included: Spotify, Chrome, Edge, Firefox, Brave, Opera, VLC, foobar2000, AIMP, MusicBee, iTunes and Deezer. Chrome, the Spotify desktop app and VLC are the ones tested by hand in the game. A few setups hold the sound card to themselves (certain foobar2000 and DAC setups do this), and they give the car silence until that is switched off in Windows. Roadwave notices and says how in the Radio tab, and <a href="#this-pc">the setup steps</a> have it too. Missing a player you use? Tell me in <a href="#feedback">the feedback box</a>.</p></details>
     <details><summary>What actually downloads when I buy?</summary>
       <p>A zip holding one installer plus a readme and instructions. The installer's filename says Jukebox rather than Advanced: Jukebox and Link are the two programs inside it. It installs per-user and needs no admin rights.</p></details>
     <details><summary>Does Roadwave Link have to run all the time?</summary>

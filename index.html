@@ -398,7 +398,7 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
 
 <section>
   <div class="wrap">
-    <h2>One thing to know before you buy</h2>
+    <h2>Two things to know before you buy</h2>
     <div class="note">
       <h3>Desktop audio needs a second audio output. The rest does not</h3>
       <p>To give the car the sound to itself, <b>This PC</b> moves the program you are listening to onto
@@ -409,6 +409,22 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
         This is how Windows works, not something the mod can fix.</p>
       <p style="margin-top:14px"><b>It affects that one feature and nothing else.</b> Internet radio, the
         Jukebox playlist builder and the whole free mod work exactly the same on a PC with a single output.</p>
+    </div>
+    <div class="note" id="defender" style="margin-top:18px">
+      <h3>Windows Defender can flag a new version in its first days</h3>
+      <p>The installer is not code-signed, and Defender is wary of any new unsigned program until Microsoft
+        has reviewed it. <b>Every version is sent to Microsoft on release day</b>, and so far their analysts
+        have found nothing in any of them. If Windows blocks it:</p>
+      <ol style="color:var(--dim);margin:10px 0 0 20px">
+        <li>Open <b>Windows Security &gt; Virus &amp; threat protection &gt; Protection history</b>.</li>
+        <li>Pick the Roadwave entry and choose <b>Allow on device</b>.</li>
+        <li>Run the installer again.</li>
+      </ol>
+      <p style="margin-top:14px"><b>Check your download</b> in PowerShell:
+        <code>Get-FileHash RoadwaveJukebox-Setup-1.8.1.exe</code>. It should print
+        <code style="word-break:break-all">2FB72A4C6153972AC02A371E085F23D7D8D4F10878466945BFBBDF93FA288631</code>
+        (version 1.8.1). If it does not match, or the install still gets stuck, email
+        <a href="mailto:garagegraphicsdesigns@gmail.com">garagegraphicsdesigns@gmail.com</a>.</p>
     </div>
   </div>
 </section>
@@ -566,7 +582,7 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
     <details><summary>Do I need this to use Roadwave?</summary>
       <p>No. The free mod is a complete music player for BeamNG.drive on its own and always will be. Advanced adds desktop audio, internet radio, Car tone, the player looks and the playlist builder on top of it.</p></details>
     <details><summary>Windows Defender flagged the installer. Is it safe?</summary>
-      <p>A new version can be flagged in its first days. The installer is not code-signed, and Defender's automatic detection is wary of any new unsigned program until Microsoft has reviewed it. Every version is sent to Microsoft on release day, and so far their analysts have found nothing in any of them. If yours is flagged, email <a href="mailto:garagegraphicsdesigns@gmail.com">garagegraphicsdesigns@gmail.com</a> and I will send the file's SHA256 so you can check your download.</p></details>
+      <p>A new version can be flagged in its first days. The installer is not code-signed, and Defender's automatic detection is wary of any new unsigned program until Microsoft has reviewed it. Every version is sent to Microsoft on release day, and so far their analysts have found nothing in any of them. If Windows blocks it, open <b>Windows Security &gt; Virus &amp; threat protection &gt; Protection history</b>, pick the Roadwave entry, choose <b>Allow on device</b> and run the installer again. To check your download, run <code>Get-FileHash</code> on the installer in PowerShell and compare it with the SHA256 in <a href="#defender">Windows Defender can flag a new version</a> above. If it does not match, or the install still gets stuck, email <a href="mailto:garagegraphicsdesigns@gmail.com">garagegraphicsdesigns@gmail.com</a>.</p></details>
     <details><summary>How do I set up This PC?</summary>
       <p>With Roadwave Link running, open the Radio tab in the Roadwave Browser, press This PC, pick your program and press play in it. The car picks it up as soon as it plays. The five steps, and what to do when the music also comes from your speakers or stays silent, are in <a href="#this-pc">Set up This PC</a>.</p></details>
     <details><summary>Which programs can it play through the car?</summary>
@@ -596,6 +612,7 @@ a:focus-visible,summary:focus-visible,figure a:focus-visible{outline:2px solid v
       <a class="btn" href="buy.html">Buy on Ko-fi, from $6</a>
       <a class="btn alt" href="buy-patreon.html">Buy on Patreon</a>
     </div>
+    <p class="price">Windows Defender flagged the installer? <a href="#defender">Here is what to do</a>.</p>
     <p class="price" style="margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto">
       Pay more than $6 if you want to; nothing changes if you do not. Prices are in US dollars, and Patreon
       converts to your own currency at checkout, so the figure there may read a little differently. Same file
